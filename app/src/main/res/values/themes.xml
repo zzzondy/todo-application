@@ -1,16 +1,39 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.ToDoApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+    <style name="Theme.ToDoApplication" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">#006E1C</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#98F994</item>
+        <item name="colorOnPrimaryContainer">#002204</item>
+
+        <item name="colorSecondary">#52634F</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#D5E8CF</item>
+        <item name="colorOnSecondaryContainer">#111F0F</item>
+
+        <item name="colorTertiary">#38656A</item>
+        <item name="colorOnTertiary">#FFFFFF</item>
+        <item name="colorTertiaryContainer">#BCEBF0</item>
+        <item name="colorOnTertiaryContainer">#002023</item>
+
+        <item name="colorError">#BA1A1A</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="colorErrorContainer">#FFDAD6</item>
+        <item name="colorOnErrorContainer">#410002</item>
+
+        <item name="colorSurface">#FCFDF6</item>
+        <item name="colorOnSurface">#1A1C19</item>
+        <item name="colorSurfaceVariant">#DEE5D8</item>
+        <item name="colorOnSurfaceVariant">#424940</item>
+
+        <item name="colorOutline">#72796F</item>
+
+        <item name="android:colorBackground">#FCFDF6</item>
+        <item name="colorOnBackground">#1A1C19</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>

@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ToDo Application</string>
+    <string name="my_tasks">My tasks</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="completed">Completed</string>
+    <string name="buy">To buy</string>
+    <string name="add">Add</string>
+    <string name="info_button" translatable="false">Info button</string>
+
+    <string name="lorem" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut lorem quis lorem pulvinar faucibus. Sed congue, quam eget feugiat vestibulum, sem sem malesuada ipsum, id fringilla enim sapien a ligula. In sit amet erat dolor. Suspendisse potenti. Curabitur quis lacinia tellus. Quisque luctus sed velit eget suscipit. In eu sapien sit amet ipsum porta sagittis. Vivamus tempus posuere orci, non viverra ex pulvinar vel. Aliquam lectus mauris, consectetur quis mollis vel, gravida ac risus. Morbi eu molestie ipsum, at semper nisl. Curabitur eu placerat orci.
+
+Curabitur a commodo ante. Mauris dapibus ut est nec tincidunt. Pellentesque id lectus ut mauris iaculis vehicula quis vehicula nunc. Ut feugiat eu turpis ac venenatis. Suspendisse quis fermentum nibh, sit amet euismod elit. Suspendisse quis pellentesque ipsum, sed suscipit magna. Vestibulum ullamcorper purus sed volutpat consectetur. Ut faucibus metus non lobortis placerat. Nam finibus erat ac augue dignissim efficitur. Fusce et mi gravida, condimentum elit nec, ultrices massa. Aliquam malesuada scelerisque purus eu dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vitae neque tincidunt, convallis neque ac, luctus libero. Fusce maximus quam eu quam tristique, nec lacinia nisi dapibus. Curabitur accumsan, nunc in mattis pulvinar, neque libero suscipit eros, ac euismod turpis justo sit amet metus. Sed dapibus porta sapien quis pharetra.
+
+Morbi elementum, quam nec luctus facilisis, nunc massa vestibulum velit, non posuere dui nisi eu tellus. Mauris rhoncus, lorem eu venenatis ornare, urna leo ultrices ex, sed faucibus mi purus non felis. Curabitur placerat augue non nibh porta fermentum. Aenean porttitor, sem vel finibus scelerisque, felis massa pharetra mauris, in feugiat orci nulla nec justo. Nulla sit amet risus quis nisl maximus interdum ac eu velit. Fusce vel nulla id ex vulputate laoreet. Sed suscipit porta lectus eu posuere. Cras aliquam ornare massa in consequat. Vivamus porttitor eros at suscipit egestas. Vivamus et eros in risus varius pellentesque ut et dolor. Sed non quam a magna ultrices sodales. Aenean id ligula at erat malesuada euismod vitae eu nisl. Nunc gravida gravida lacus et interdum.
+
+Morbi sollicitudin ex posuere nisi efficitur vulputate. Quisque elementum, nibh fringilla pulvinar ultrices, massa tellus blandit magna, sit amet cursus risus arcu non mi. Fusce id metus in sapien dictum dictum eget eu quam. Aliquam erat volutpat. Sed eleifend, neque nec vestibulum volutpat, velit lectus imperdiet elit, non egestas nisl lorem pretium risus. Donec id lorem dictum, pellentesque elit vitae, auctor purus. Quisque ultricies porta elit id congue. Nam tincidunt ultrices congue. Duis in neque turpis. In iaculis nunc lacus, a bibendum diam aliquet ac. Donec blandit id quam ut tempor. Suspendisse cursus sodales venenatis.
+
+Nam sodales volutpat justo sit amet lacinia. Duis vulputate feugiat orci luctus dignissim. Phasellus hendrerit turpis vel mauris tristique, vitae luctus eros lobortis. Sed eget lorem ut purus malesuada ornare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur justo fringilla, feugiat sem at, maximus sem. Donec bibendum dui sed bibendum hendrerit. Pellentesque sollicitudin nunc eu maximus aliquam. Nulla blandit finibus sapien, ut mattis tortor mollis vitae. Vivamus lacinia est vitae mi egestas, consectetur rhoncus nisl tincidunt. Suspendisse varius ullamcorper nulla nec auctor. Pellentesque ullamcorper quam eget dapibus auctor.</string>
 </resources>

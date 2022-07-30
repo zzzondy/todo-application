@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ToDo Application</string>
+    <string name="my_tasks">Мои дела</string>
+    <string name="home">Главная</string>
+    <string name="profile">Профиль</string>
+    <string name="completed">Выполненные</string>
+    <string name="buy">Купить</string>
+    <string name="add">Добавить</string>
+</resources>
