@@ -7,4 +7,16 @@
     <string name="completed">Выполненные</string>
     <string name="buy">Купить</string>
     <string name="add">Добавить</string>
+    <string name="no_tasks">Ничего не запланировано</string>
+    <string name="save">Сохранить</string>
+    <string name="something_to_do">Что-то сделать…</string>
+    <string name="importance">Приоритетность</string>
+    <string name="low">Низкая</string>
+    <string-array name="importance">
+        <item>Низкая</item>
+        <item>Средняя</item>
+        <item>Высокая</item>
+    </string-array>
+    <string name="finish_until">Сделать до</string>
+    <string name="delete">Удалить</string>
 </resources>

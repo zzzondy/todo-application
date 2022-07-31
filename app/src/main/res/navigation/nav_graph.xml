@@ -9,7 +9,11 @@
         android:id="@+id/navigation_todoList"
         android:name="com.todoapplication.ui.fragments.todolist.TodoListFragment"
         android:label="TodoListFragment"
-        tools:layout="@layout/fragment_todo_list" />
+        tools:layout="@layout/fragment_todo_list" >
+        <action
+            android:id="@+id/action_navigation_todoList_to_addTaskFragment"
+            app:destination="@id/navigation_addtask" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_tobuy"
         android:name="com.todoapplication.ui.fragments.tobuy.ToBuyFragment"
@@ -20,4 +24,9 @@
         android:name="com.todoapplication.ui.fragments.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navigation_addtask"
+        android:name="com.todoapplication.ui.fragments.addtask.AddTaskFragment"
+        android:label="AddTaskFragment"
+        tools:layout="@layout/fragment_add_task"/>
 </navigation>

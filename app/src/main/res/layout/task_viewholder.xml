@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="task"
+            type="com.todoapplication.data.entities.TodoItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +31,8 @@
             android:fontFamily="sans-serif-medium"
             android:maxLines="3"
             android:paddingTop="8dp"
-            android:text="@string/app_name"
+            android:paddingBottom="8dp"
+            android:text="@{task.text}"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@id/info_button"
             app:layout_constraintStart_toEndOf="@id/task_checkbox"

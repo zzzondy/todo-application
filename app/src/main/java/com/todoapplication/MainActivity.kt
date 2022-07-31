@@ -1,7 +1,10 @@
 package com.todoapplication
 
+import android.content.res.Configuration
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController

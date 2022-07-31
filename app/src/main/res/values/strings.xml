@@ -6,7 +6,19 @@
     <string name="completed">Completed</string>
     <string name="buy">To buy</string>
     <string name="add">Add</string>
+    <string name="no_tasks">No scheduled</string>
+    <string name="save">Save</string>
+    <string name="something_to_do">Something to do…</string>
     <string name="info_button" translatable="false">Info button</string>
+    <string name="importance">Importance</string>
+    <string name="low">Low</string>
+    <string name="finish_until">Finish until</string>
+    <string name="delete">Delete</string>
+    <string-array name="importance">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
 
     <string name="lorem" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut lorem quis lorem pulvinar faucibus. Sed congue, quam eget feugiat vestibulum, sem sem malesuada ipsum, id fringilla enim sapien a ligula. In sit amet erat dolor. Suspendisse potenti. Curabitur quis lacinia tellus. Quisque luctus sed velit eget suscipit. In eu sapien sit amet ipsum porta sagittis. Vivamus tempus posuere orci, non viverra ex pulvinar vel. Aliquam lectus mauris, consectetur quis mollis vel, gravida ac risus. Morbi eu molestie ipsum, at semper nisl. Curabitur eu placerat orci.
 

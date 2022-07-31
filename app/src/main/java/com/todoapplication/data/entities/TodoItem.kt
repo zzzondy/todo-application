@@ -8,7 +8,7 @@ data class TodoItem(
     val text: String,
     val importance: Importance,
     val done: Boolean,
-    val dateOfCreation: Date,
-    val dateOfModified: Date,
+    val dateOfCreation: String,
+    val dateOfModified: String,
     val deadline: Date? = null
 )

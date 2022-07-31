@@ -1,4 +1,4 @@
-package com.todoapplication.ui.fragments.todolist
+package com.todoapplication.ui.fragments.addtask
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,15 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.todoapplication.R
-import com.todoapplication.databinding.FragmentTodoListBinding
-import com.todoapplication.navigation.TaskDetailsListener
-import com.todoapplication.ui.fragments.todolist.adapter.TodoListAdapter
+import com.todoapplication.databinding.FragmentAddTaskBinding
+import com.todoapplication.navigation.AddTaskFragmentClickListener
 
-class TodoListFragment : Fragment(), TaskDetailsListener {
-    private val viewModel: TodoListViewModel by viewModels { TodoListViewModelFactory() }
+class AddTaskFragment : Fragment(), AddTaskFragmentClickListener {
 
-    private var _binding: FragmentTodoListBinding? = null
-    private val binding: FragmentTodoListBinding get() = _binding!!
+    private val viewModel: AddTaskViewModel by viewModels { AddTaskViewModelFactory() }
+
+    private var _binding: FragmentAddTaskBinding? = null
+    private val binding: FragmentAddTaskBinding get() = _binding!!
 
     private lateinit var navController: NavController
 
@@ -26,7 +26,7 @@ class TodoListFragment : Fragment(), TaskDetailsListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_todo_list, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_task, container, false)
         return binding.root
     }
 
@@ -34,8 +34,6 @@ class TodoListFragment : Fragment(), TaskDetailsListener {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        binding.taskDetailsListener = this
-        binding.todoList.adapter = TodoListAdapter()
         navController = findNavController()
     }
 
@@ -44,8 +42,8 @@ class TodoListFragment : Fragment(), TaskDetailsListener {
         _binding = null
     }
 
-    override fun openAddTaskScreen() {
-        navController.navigate(R.id.action_navigation_todoList_to_addTaskFragment)
+    override fun returnToBack() {
+        navController.navigateUp()
     }
 
 }
