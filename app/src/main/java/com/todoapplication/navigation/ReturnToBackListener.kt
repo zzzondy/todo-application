@@ -1,5 +1,5 @@
 package com.todoapplication.navigation
 
-interface AddTaskFragmentClickListener {
+interface ReturnToBackListener {
     fun returnToBack()
 }

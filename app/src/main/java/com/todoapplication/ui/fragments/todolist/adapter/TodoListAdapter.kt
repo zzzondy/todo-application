@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.todoapplication.data.entities.TodoItem
 import com.todoapplication.databinding.TaskViewholderBinding
 
-class TodoListAdapter() : ListAdapter<TodoItem, TodoItemViewHolder>(TodoListDiffCallback()) {
+class TodoListAdapter : ListAdapter<TodoItem, TodoItemViewHolder>(TodoListDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoItemViewHolder {
         val itemBinding =
             TaskViewholderBinding.inflate(LayoutInflater.from(parent.context), parent, false)

@@ -10,12 +10,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.todoapplication.R
+import com.todoapplication.data.entities.TodoItem
 import com.todoapplication.databinding.FragmentTodoListBinding
 import com.todoapplication.navigation.TaskDetailsListener
 import com.todoapplication.ui.fragments.todolist.adapter.TodoListAdapter
 
 class TodoListFragment : Fragment(), TaskDetailsListener {
-    private val viewModel: TodoListViewModel by viewModels { TodoListViewModelFactory() }
+    private val viewModel: TodoListViewModel by viewModels { TodoListViewModelFactory(requireContext().applicationContext) }
 
     private var _binding: FragmentTodoListBinding? = null
     private val binding: FragmentTodoListBinding get() = _binding!!

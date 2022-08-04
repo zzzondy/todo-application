@@ -13,7 +13,11 @@
 
         <variable
             name="navListener"
-            type="com.todoapplication.navigation.AddTaskFragmentClickListener" />
+            type="com.todoapplication.navigation.ReturnToBackListener" />
+
+        <variable
+            name="fragmentListener"
+            type="com.todoapplication.clicklisteners.AddTaskFragmentClickListener" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -47,7 +51,7 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:onClick="@{() -> navListener.returnToBack()}"
+                    android:onClick="@{() -> fragmentListener.saveTask()}"
                     android:text="@string/save"
                     android:textSize="20sp" />
             </com.google.android.material.appbar.MaterialToolbar>
@@ -75,6 +79,10 @@
                     app:boxCornerRadiusBottomStart="20sp"
                     app:boxCornerRadiusTopEnd="20sp"
                     app:boxCornerRadiusTopStart="20dp"
+                    app:errorEnabled="true"
+                    app:helperTextEnabled="true"
+                    app:helperText="@string/required"
+                    app:helperTextTextColor="?attr/colorError"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -116,6 +124,7 @@
                     app:layout_constraintTop_toBottomOf="@id/divider1">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/importance"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="none"
@@ -139,7 +148,10 @@
                     android:id="@+id/deadline_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ripple_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/divider2">
@@ -148,7 +160,7 @@
                         android:id="@+id/finish_until"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
+                        android:layout_marginStart="16dp"
                         android:text="@string/finish_until"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -159,7 +171,7 @@
                         android:id="@+id/deadline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2 июня 2022"
+                        android:text="@{viewModel.deadline}"
                         android:textColor="?attr/colorOnPrimaryContainer"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="@id/finish_until"
@@ -169,7 +181,8 @@
                         android:id="@+id/switch_deadline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="32dp"
+                        android:layout_marginEnd="16dp"
+                        android:onCheckedChanged="@{(switch, checked) -> viewModel.handleSwitchDeadlineState(switch, checked)}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/finish_until" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -192,8 +205,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
-                    android:onClick="@{() -> navListener.returnToBack()}"
-                    app:rippleColor="?attr/colorOnErrorContainer"
+                    android:onClick="@{() -> fragmentListener.deleteTask()}"
                     android:text="@string/delete"
                     android:textColor="?attr/colorError"
                     android:textSize="18sp"
@@ -201,7 +213,8 @@
                     app:iconSize="24dp"
                     app:iconTint="?attr/colorError"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider3" />
+                    app:layout_constraintTop_toBottomOf="@id/divider3"
+                    app:rippleColor="?attr/colorOnErrorContainer" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 

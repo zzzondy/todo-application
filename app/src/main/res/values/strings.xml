@@ -12,8 +12,23 @@
     <string name="info_button" translatable="false">Info button</string>
     <string name="importance">Importance</string>
     <string name="low">Low</string>
+    <string name="medium">Medium</string>
     <string name="finish_until">Finish until</string>
     <string name="delete">Delete</string>
+    <string name="january">january</string>
+    <string name="february">february</string>
+    <string name="march">march</string>
+    <string name="april">april</string>
+    <string name="may">may</string>
+    <string name="june">june</string>
+    <string name="july">july</string>
+    <string name="august">august</string>
+    <string name="september">september</string>
+    <string name="october">october</string>
+    <string name="november">november</string>
+    <string name="december">december</string>
+    <string name="select_date">Please, select date</string>
+    <string name="required">*Required</string>
     <string-array name="importance">
         <item>Low</item>
         <item>Medium</item>
