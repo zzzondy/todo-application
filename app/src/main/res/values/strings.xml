@@ -13,6 +13,7 @@
     <string name="importance">Importance</string>
     <string name="low">Low</string>
     <string name="medium">Medium</string>
+    <string name="high">High</string>
     <string name="finish_until">Finish until</string>
     <string name="delete">Delete</string>
     <string name="january">january</string>

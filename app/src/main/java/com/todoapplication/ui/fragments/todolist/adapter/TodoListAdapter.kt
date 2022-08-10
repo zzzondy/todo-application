@@ -4,10 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.todoapplication.clicklisteners.TodoListFragmentListener
 import com.todoapplication.data.entities.TodoItem
 import com.todoapplication.databinding.TaskViewholderBinding
+import com.todoapplication.navigation.TaskDetailsListener
 
-class TodoListAdapter : ListAdapter<TodoItem, TodoItemViewHolder>(TodoListDiffCallback()) {
+class TodoListAdapter(
+    private val todoListFragmentListener: TodoListFragmentListener,
+    private val taskDetailsListener: TaskDetailsListener
+) : ListAdapter<TodoItem, TodoItemViewHolder>(TodoListDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoItemViewHolder {
         val itemBinding =
             TaskViewholderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -16,7 +21,7 @@ class TodoListAdapter : ListAdapter<TodoItem, TodoItemViewHolder>(TodoListDiffCa
 
     override fun onBindViewHolder(holder: TodoItemViewHolder, position: Int) {
         val task = getItem(position)
-        holder.bind(task)
+        holder.bind(task, todoListFragmentListener, taskDetailsListener)
     }
 }
 

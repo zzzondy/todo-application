@@ -34,4 +34,5 @@
     <string name="select_date">Пожалуйста, выберите дату</string>
     <string name="required">*Обязательное поле</string>
     <string name="medium">Средняя</string>
+    <string name="high">Высокая</string>
 </resources>

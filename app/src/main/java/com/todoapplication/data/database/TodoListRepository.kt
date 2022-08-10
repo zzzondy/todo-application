@@ -1,12 +1,11 @@
 package com.todoapplication.data.database
 
-import android.content.Context
 import com.todoapplication.data.entities.TodoItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class TodoListRepository(val applicationContext: Context) {
-    private val database = TodoListDatabase.create(applicationContext)
+class TodoListRepository @Inject constructor(private val database: TodoListDatabase) {
 
     private fun toEntity(todoItem: TodoItem) = TodoItemEntity(
         taskId = todoItem.id,
@@ -50,5 +49,24 @@ class TodoListRepository(val applicationContext: Context) {
 
     suspend fun getCountOfTasks() = withContext(Dispatchers.IO) {
         database.todoListDao.getCountOfTasks()
+    }
+
+    suspend fun setTaskDone(id: Int) = withContext(Dispatchers.IO) {
+        database.todoListDao.setTaskDone(id)
+    }
+
+    suspend fun setTaskUndone(id: Int) = withContext(Dispatchers.IO) {
+        database.todoListDao.setTaskUndone(id)
+    }
+
+    suspend fun updateTaskById(id: Int, task: TodoItem) = withContext(Dispatchers.IO) {
+        database.todoListDao.updateTaskById(
+            id,
+            task.text,
+            task.importance,
+            task.done,
+            task.dateOfModified,
+            task.deadline
+        )
     }
 }

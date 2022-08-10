@@ -3,7 +3,7 @@ package com.todoapplication.data.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
+import com.todoapplication.data.states.Importance
 
 @Dao
 interface TodoListDao {
@@ -24,4 +24,20 @@ interface TodoListDao {
 
     @Query("SELECT COUNT(*) FROM todo_list")
     fun getCountOfTasks(): Long
+
+    @Query("UPDATE todo_list SET done = '1' WHERE task_id = :id")
+    fun setTaskDone(id: Int)
+
+    @Query("UPDATE todo_list SET done = '0' WHERE task_id = :id")
+    fun setTaskUndone(id: Int)
+
+    @Query("UPDATE todo_list SET text = :text, importance = :importance, done = :done, date_of_modified = :dateOfModified, deadline = :deadline WHERE task_id = :id")
+    fun updateTaskById(
+        id: Int,
+        text: String,
+        importance: Importance,
+        done: Boolean,
+        dateOfModified: Long,
+        deadline: Long?
+    )
 }

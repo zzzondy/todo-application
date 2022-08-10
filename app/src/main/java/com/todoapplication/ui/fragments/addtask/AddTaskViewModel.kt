@@ -2,6 +2,7 @@ package com.todoapplication.ui.fragments.addtask
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.res.Resources
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.*
@@ -12,8 +13,14 @@ import com.todoapplication.data.states.Importance
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
-class AddTaskViewModel(private val tasksRepository: TodoListRepository) : ViewModel() {
+class AddTaskViewModel(
+    private val task: TodoItem?,
+    private val tasksRepository: TodoListRepository,
+    private val resources: Resources
+) : ViewModel() {
+    private var isRationaleShowDialog = false
     private val _deadlineInMillis = MutableLiveData<Long?>(null)
     val deadline: LiveData<String> = Transformations.map(_deadlineInMillis) { deadline ->
         if (deadline == null) {
@@ -33,11 +40,18 @@ class AddTaskViewModel(private val tasksRepository: TodoListRepository) : ViewMo
         data.isNotEmpty()
     }
 
+    init {
+        if (task != null)
+            _deadlineInMillis.value = task.deadline
+    }
+
     fun handleSwitchDeadlineState(view: View, checked: Boolean) {
-        if (checked) {
+        if (checked && isRationaleShowDialog && task != null || checked && task == null) {
             showDatePickerDialog(view.context)
+        } else if (!isRationaleShowDialog) {
+            isRationaleShowDialog = true
         } else {
-            _deadlineInMillis.value = -1
+            _deadlineInMillis.value = null
         }
     }
 
@@ -59,10 +73,13 @@ class AddTaskViewModel(private val tasksRepository: TodoListRepository) : ViewMo
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
+        dialog.setOnCancelListener {
+            _deadlineInMillis.value = null
+        }
         dialog.show()
     }
 
-    fun addNewTask(
+    fun saveTask(
         text: String,
         importance: Importance,
     ) {
@@ -79,12 +96,34 @@ class AddTaskViewModel(private val tasksRepository: TodoListRepository) : ViewMo
                     _deadlineInMillis.value
                 )
             )
-            Log.println(Log.ASSERT, "tag", tasksRepository.getAllTasks().toString())
+        }
+    }
+
+    fun saveTask(id: Int, text: String, importance: Importance) {
+        val calendar = Calendar.getInstance()
+        viewModelScope.launch(Dispatchers.IO) {
+            tasksRepository.updateTaskById(
+                id,
+                toTask(
+                    id,
+                    text,
+                    importance,
+                    task!!.done,
+                    task.dateOfCreation,
+                    calendar.timeInMillis,
+                    _deadlineInMillis.value
+                )
+            )
+        }
+    }
+
+    fun deleteTask(id: Int) {
+        viewModelScope.launch {
+            tasksRepository.deleteTaskById(id)
         }
     }
 
     private fun getMonthByNumber(month: Int): String {
-        val resources = tasksRepository.applicationContext.resources
         return when (month) {
             0 -> resources.getString(R.string.january)
             1 -> resources.getString(R.string.february)
@@ -112,11 +151,16 @@ class AddTaskViewModel(private val tasksRepository: TodoListRepository) : ViewMo
     ) = TodoItem(id, text, importance, done, dateOfCreation, dateOfModified, deadline)
 }
 
-class AddTaskViewModelFactory(private val applicationContext: Context) : ViewModelProvider.Factory {
+class AddTaskViewModelFactory(
+    private val task: TodoItem?,
+    private val todoListRepository: TodoListRepository,
+    private val resources: Resources
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(AddTaskViewModel::class.java)) {
-            return AddTaskViewModel(TodoListRepository(applicationContext)) as T
+            return AddTaskViewModel(task, todoListRepository, resources) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
+
 }
